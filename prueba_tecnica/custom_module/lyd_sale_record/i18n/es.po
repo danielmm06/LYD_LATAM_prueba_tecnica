@@ -1,0 +1,442 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* lyd_sale_record
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-09-24 06:54+0000\n"
+"PO-Revision-Date: 2026-09-24 06:04+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: lyd_sale_record
+#. odoo-python
+#: code:addons/lyd_sale_record/wizard/lyd_sale_record_import.py:0
+msgid "%(orders)s sales with %(lines)s lines imported. New customers: %(partners)s, salespeople: %(users)s, products: %(products)s. Unit price adjusted in %(adjusted)s lines."
+msgstr "%(orders)s ventas con %(lines)s líneas importadas. Nuevos clientes: %(partners)s, vendedores: %(users)s, productos: %(products)s. Precio unitario ajustado en %(adjusted)s líneas."
+
+#. module: lyd_sale_record
+#. odoo-python
+#: code:addons/lyd_sale_record/wizard/lyd_sale_record_import.py:0
+msgid "...and %(count)s more"
+msgstr "…y %(count)s más"
+
+#. module: lyd_sale_record
+#: model:res.groups,comment:lyd_sale_record.lyd_sale_record_group_user
+msgid "Can import Excel files and view sale records."
+msgstr "Puede importar archivos Excel y ver los registros de venta."
+
+#. module: lyd_sale_record
+#: model:res.groups,comment:lyd_sale_record.lyd_sale_record_group_manager
+msgid "Can update and delete sale records."
+msgstr "Puede modificar y eliminar registros de venta."
+
+#. module: lyd_sale_record
+#: model_terms:ir.ui.view,arch_db:lyd_sale_record.lyd_sale_record_import_view_form
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: lyd_sale_record
+#: model:ir.model.fields.selection,name:lyd_sale_record.selection__lyd_sale_record__state__cancelled
+#: model:ir.model.fields.selection,name:lyd_sale_record.selection__lyd_sale_record_report__state__cancelled
+#: model_terms:ir.ui.view,arch_db:lyd_sale_record.lyd_sale_record_report_view_search
+#: model_terms:ir.ui.view,arch_db:lyd_sale_record.lyd_sale_record_view_form
+#: model_terms:ir.ui.view,arch_db:lyd_sale_record.lyd_sale_record_view_search
+msgid "Cancelled"
+msgstr "Cancelada"
+
+#. module: lyd_sale_record
+#: model:ir.model.fields,field_description:lyd_sale_record.field_lyd_sale_record__company_id
+#: model:ir.model.fields,field_description:lyd_sale_record.field_lyd_sale_record_line__company_id
+#: model:ir.model.fields,field_description:lyd_sale_record.field_lyd_sale_record_report__company_id
+msgid "Company"
+msgstr "Compañía"
+
+#. module: lyd_sale_record
+#: model:ir.model.fields.selection,name:lyd_sale_record.selection__lyd_sale_record__state__confirmed
+#: model:ir.model.fields.selection,name:lyd_sale_record.selection__lyd_sale_record_report__state__confirmed
+#: model_terms:ir.ui.view,arch_db:lyd_sale_record.lyd_sale_record_report_view_search
+#: model_terms:ir.ui.view,arch_db:lyd_sale_record.lyd_sale_record_view_search
+msgid "Confirmed"
+msgstr "Confirmada"
+
+#. module: lyd_sale_record
+#: model:ir.model.fields,field_description:lyd_sale_record.field_lyd_sale_record__create_uid
+#: model:ir.model.fields,field_description:lyd_sale_record.field_lyd_sale_record_import__create_uid
+#: model:ir.model.fields,field_description:lyd_sale_record.field_lyd_sale_record_line__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: lyd_sale_record
+#: model:ir.model.fields,field_description:lyd_sale_record.field_lyd_sale_record__create_date
+#: model:ir.model.fields,field_description:lyd_sale_record.field_lyd_sale_record_import__create_date
+#: model:ir.model.fields,field_description:lyd_sale_record.field_lyd_sale_record_line__create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: lyd_sale_record
+#: model:ir.model.fields,field_description:lyd_sale_record.field_lyd_sale_record__currency_id
+#: model:ir.model.fields,field_description:lyd_sale_record.field_lyd_sale_record_line__currency_id
+#: model:ir.model.fields,field_description:lyd_sale_record.field_lyd_sale_record_report__currency_id
+msgid "Currency"
+msgstr "Moneda"
+
+#. module: lyd_sale_record
+#: model:ir.model.fields,field_description:lyd_sale_record.field_lyd_sale_record__partner_id
+#: model:ir.model.fields,field_description:lyd_sale_record.field_lyd_sale_record_report__partner_id
+#: model_terms:ir.ui.view,arch_db:lyd_sale_record.lyd_sale_record_report_view_search
+#: model_terms:ir.ui.view,arch_db:lyd_sale_record.lyd_sale_record_view_search
+msgid "Customer"
+msgstr "Cliente"
+
+#. module: lyd_sale_record
+#: model:ir.ui.menu,name:lyd_sale_record.lyd_sale_record_menu_dashboard
+msgid "Dashboard"
+msgstr "Tablero"
+
+#. module: lyd_sale_record
+#: model:ir.model.fields,field_description:lyd_sale_record.field_lyd_sale_record__date
+#: model:ir.model.fields,field_description:lyd_sale_record.field_lyd_sale_record_report__date
+msgid "Date"
+msgstr "Fecha"
+
+#. module: lyd_sale_record
+#: model:ir.model.fields,field_description:lyd_sale_record.field_lyd_sale_record__display_name
+#: model:ir.model.fields,field_description:lyd_sale_record.field_lyd_sale_record_import__display_name
+#: model:ir.model.fields,field_description:lyd_sale_record.field_lyd_sale_record_line__display_name
+#: model:ir.model.fields,field_description:lyd_sale_record.field_lyd_sale_record_report__display_name
+msgid "Display Name"
+msgstr "Nombre para mostrar"
+
+#. module: lyd_sale_record
+#: model:ir.model.fields.selection,name:lyd_sale_record.selection__lyd_sale_record__state__draft
+#: model:ir.model.fields.selection,name:lyd_sale_record.selection__lyd_sale_record_report__state__draft
+#: model_terms:ir.ui.view,arch_db:lyd_sale_record.lyd_sale_record_report_view_search
+#: model_terms:ir.ui.view,arch_db:lyd_sale_record.lyd_sale_record_view_search
+msgid "Draft"
+msgstr "Borrador"
+
+#. module: lyd_sale_record
+#: model:ir.model.fields,field_description:lyd_sale_record.field_lyd_sale_record_import__file
+msgid "Excel File"
+msgstr "Archivo Excel"
+
+#. module: lyd_sale_record
+#. odoo-python
+#: code:addons/lyd_sale_record/wizard/lyd_sale_record_import.py:0
+msgid "Expected a number greater than zero."
+msgstr "Se esperaba un número mayor que cero."
+
+#. module: lyd_sale_record
+#. odoo-python
+#: code:addons/lyd_sale_record/wizard/lyd_sale_record_import.py:0
+msgid "Expected a number."
+msgstr "Se esperaba un número."
+
+#. module: lyd_sale_record
+#: model:ir.model.fields,field_description:lyd_sale_record.field_lyd_sale_record_import__file_name
+msgid "File Name"
+msgstr "Nombre del archivo"
+
+#. module: lyd_sale_record
+#: model:ir.model.fields,field_description:lyd_sale_record.field_lyd_sale_record__id
+#: model:ir.model.fields,field_description:lyd_sale_record.field_lyd_sale_record_import__id
+#: model:ir.model.fields,field_description:lyd_sale_record.field_lyd_sale_record_line__id
+#: model:ir.model.fields,field_description:lyd_sale_record.field_lyd_sale_record_report__id
+msgid "ID"
+msgstr "ID"
+
+#. module: lyd_sale_record
+#: model_terms:ir.ui.view,arch_db:lyd_sale_record.lyd_sale_record_import_view_form
+msgid "Import"
+msgstr "Importar"
+
+#. module: lyd_sale_record
+#: model:ir.actions.act_window,name:lyd_sale_record.lyd_sale_record_import_action
+#: model:ir.ui.menu,name:lyd_sale_record.lyd_sale_record_menu_import
+#: model_terms:ir.ui.view,arch_db:lyd_sale_record.lyd_sale_record_import_view_form
+msgid "Import Excel"
+msgstr "Importar Excel"
+
+#. module: lyd_sale_record
+#: model:ir.model.fields,field_description:lyd_sale_record.field_lyd_sale_record__import_file_name
+msgid "Import File"
+msgstr "Archivo de importación"
+
+#. module: lyd_sale_record
+#: model_terms:ir.ui.view,arch_db:lyd_sale_record.lyd_sale_record_view_form
+msgid "Import Information"
+msgstr "Información de importación"
+
+#. module: lyd_sale_record
+#: model:ir.model,name:lyd_sale_record.model_lyd_sale_record_import
+msgid "Import Sale Records from Excel"
+msgstr "Importar registros de venta desde Excel"
+
+#. module: lyd_sale_record
+#: model_terms:ir.actions.act_window,help:lyd_sale_record.lyd_sale_record_action
+msgid "Import an Excel file to create sale records, or create one manually."
+msgstr "Importe un archivo Excel para crear registros de venta, o cree uno manualmente."
+
+#. module: lyd_sale_record
+#. odoo-python
+#: code:addons/lyd_sale_record/wizard/lyd_sale_record_import.py:0
+msgid "Import successful"
+msgstr "Importación exitosa"
+
+#. module: lyd_sale_record
+#. odoo-python
+#: code:addons/lyd_sale_record/wizard/lyd_sale_record_import.py:0
+msgid "Invalid date. Expected a date or text in YYYY-MM-DD format."
+msgstr "Fecha inválida. Se esperaba una fecha o un texto en formato AAAA-MM-DD."
+
+#. module: lyd_sale_record
+#: model:ir.model.fields,field_description:lyd_sale_record.field_lyd_sale_record__write_uid
+#: model:ir.model.fields,field_description:lyd_sale_record.field_lyd_sale_record_import__write_uid
+#: model:ir.model.fields,field_description:lyd_sale_record.field_lyd_sale_record_line__write_uid
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: lyd_sale_record
+#: model:ir.model.fields,field_description:lyd_sale_record.field_lyd_sale_record__write_date
+#: model:ir.model.fields,field_description:lyd_sale_record.field_lyd_sale_record_import__write_date
+#: model:ir.model.fields,field_description:lyd_sale_record.field_lyd_sale_record_line__write_date
+msgid "Last Updated on"
+msgstr "Última actualización el"
+
+#. module: lyd_sale_record
+#: model:ir.model.fields,field_description:lyd_sale_record.field_lyd_sale_record__line_ids
+msgid "Lines"
+msgstr "Líneas"
+
+#. module: lyd_sale_record
+#: model:res.groups,name:lyd_sale_record.lyd_sale_record_group_manager
+msgid "Manager"
+msgstr "Gerente"
+
+#. module: lyd_sale_record
+#: model_terms:ir.actions.act_window,help:lyd_sale_record.lyd_sale_record_action
+msgid "No sale records yet."
+msgstr "Aún no hay registros de venta."
+
+#. module: lyd_sale_record
+#: model_terms:ir.ui.view,arch_db:lyd_sale_record.lyd_sale_record_report_view_search
+#: model_terms:ir.ui.view,arch_db:lyd_sale_record.lyd_sale_record_view_search
+msgid "Order Date"
+msgstr "Fecha de la venta"
+
+#. module: lyd_sale_record
+#: model_terms:ir.ui.view,arch_db:lyd_sale_record.lyd_sale_record_view_form
+msgid "Order Lines"
+msgstr "Líneas de venta"
+
+#. module: lyd_sale_record
+#: model:ir.model.fields,field_description:lyd_sale_record.field_lyd_sale_record_line__product_id
+#: model:ir.model.fields,field_description:lyd_sale_record.field_lyd_sale_record_report__product_id
+#: model_terms:ir.ui.view,arch_db:lyd_sale_record.lyd_sale_record_report_view_search
+msgid "Product"
+msgstr "Producto"
+
+#. module: lyd_sale_record
+#: model:ir.model.fields,field_description:lyd_sale_record.field_lyd_sale_record_line__quantity
+#: model:ir.model.fields,field_description:lyd_sale_record.field_lyd_sale_record_report__quantity
+msgid "Quantity"
+msgstr "Cantidad"
+
+#. module: lyd_sale_record
+#. odoo-python
+#: code:addons/lyd_sale_record/wizard/lyd_sale_record_import.py:0
+msgid "Row %(row)s, column \"%(column)s\": %(reason)s"
+msgstr "Fila %(row)s, columna \"%(column)s\": %(reason)s"
+
+#. module: lyd_sale_record
+#: model:ir.model,name:lyd_sale_record.model_lyd_sale_record
+#: model:ir.model.fields,field_description:lyd_sale_record.field_lyd_sale_record_line__order_id
+#: model:ir.model.fields,field_description:lyd_sale_record.field_lyd_sale_record_report__order_id
+#: model:res.groups.privilege,name:lyd_sale_record.lyd_sale_record_group_privilege
+#: model_terms:ir.ui.view,arch_db:lyd_sale_record.lyd_sale_record_view_form
+msgid "Sale Record"
+msgstr "Registro de venta"
+
+#. module: lyd_sale_record
+#: model:ir.model,name:lyd_sale_record.model_lyd_sale_record_line
+msgid "Sale Record Line"
+msgstr "Línea de registro de venta"
+
+#. module: lyd_sale_record
+#: model:ir.actions.act_window,name:lyd_sale_record.lyd_sale_record_action
+#: model:ir.ui.menu,name:lyd_sale_record.lyd_sale_record_menu_records
+#: model:ir.ui.menu,name:lyd_sale_record.lyd_sale_record_menu_root
+#: model_terms:ir.ui.view,arch_db:lyd_sale_record.lyd_sale_record_view_list
+#: model_terms:ir.ui.view,arch_db:lyd_sale_record.lyd_sale_record_view_search
+msgid "Sale Records"
+msgstr "Registros de venta"
+
+#. module: lyd_sale_record
+#. odoo-javascript
+#: code:addons/lyd_sale_record/static/src/views/sale_record_dashboard/sale_record_dashboard.xml:0
+msgid "Sales (active filter)"
+msgstr "Ventas (filtro activo)"
+
+#. module: lyd_sale_record
+#: model:ir.actions.act_window,name:lyd_sale_record.lyd_sale_record_report_action
+#: model_terms:ir.ui.view,arch_db:lyd_sale_record.lyd_sale_record_report_view_graph
+#: model_terms:ir.ui.view,arch_db:lyd_sale_record.lyd_sale_record_report_view_list
+#: model_terms:ir.ui.view,arch_db:lyd_sale_record.lyd_sale_record_report_view_pivot
+#: model_terms:ir.ui.view,arch_db:lyd_sale_record.lyd_sale_record_report_view_search
+msgid "Sales Analysis"
+msgstr "Análisis de ventas"
+
+#. module: lyd_sale_record
+#: model:ir.model,name:lyd_sale_record.model_lyd_sale_record_report
+msgid "Sales Analysis Report"
+msgstr "Informe de análisis de ventas"
+
+#. module: lyd_sale_record
+#. odoo-javascript
+#: code:addons/lyd_sale_record/static/src/views/sale_record_dashboard/sale_record_dashboard.xml:0
+msgid "Sales this month"
+msgstr "Ventas del mes"
+
+#. module: lyd_sale_record
+#: model:ir.model.fields,field_description:lyd_sale_record.field_lyd_sale_record__user_id
+#: model:ir.model.fields,field_description:lyd_sale_record.field_lyd_sale_record_report__user_id
+#: model_terms:ir.ui.view,arch_db:lyd_sale_record.lyd_sale_record_report_view_search
+#: model_terms:ir.ui.view,arch_db:lyd_sale_record.lyd_sale_record_view_search
+msgid "Salesperson"
+msgstr "Vendedor"
+
+#. module: lyd_sale_record
+#: model:ir.model.fields,field_description:lyd_sale_record.field_lyd_sale_record__state
+msgid "State"
+msgstr "Estado"
+
+#. module: lyd_sale_record
+#: model:ir.model.fields,field_description:lyd_sale_record.field_lyd_sale_record_report__state
+#: model_terms:ir.ui.view,arch_db:lyd_sale_record.lyd_sale_record_report_view_search
+#: model_terms:ir.ui.view,arch_db:lyd_sale_record.lyd_sale_record_view_search
+msgid "Status"
+msgstr "Estado"
+
+#. module: lyd_sale_record
+#. odoo-python
+#: code:addons/lyd_sale_record/wizard/lyd_sale_record_import.py:0
+msgid "The Excel file has no data rows."
+msgstr "El archivo Excel no tiene filas de datos."
+
+#. module: lyd_sale_record
+#. odoo-python
+#: code:addons/lyd_sale_record/wizard/lyd_sale_record_import.py:0
+msgid "The Excel file has no rows."
+msgstr "El archivo Excel no tiene filas."
+
+#. module: lyd_sale_record
+#. odoo-python
+#: code:addons/lyd_sale_record/wizard/lyd_sale_record_import.py:0
+msgid "The Excel file is missing the following columns: %(columns)s."
+msgstr "Al archivo Excel le faltan las siguientes columnas: %(columns)s."
+
+#. module: lyd_sale_record
+#. odoo-python
+#: code:addons/lyd_sale_record/wizard/lyd_sale_record_import.py:0
+msgid "The cell contains an error value."
+msgstr "La celda contiene un valor de error."
+
+#. module: lyd_sale_record
+#. odoo-python
+#: code:addons/lyd_sale_record/wizard/lyd_sale_record_import.py:0
+msgid ""
+"The file could not be imported. %(count)s error(s) were found:\n"
+"%(details)s"
+msgstr ""
+"No se pudo importar el archivo. Se encontraron %(count)s error(es):\n"
+"%(details)s"
+
+#. module: lyd_sale_record
+#. odoo-python
+#: code:addons/lyd_sale_record/wizard/lyd_sale_record_import.py:0
+msgid "The file could not be read. It may be corrupted or not a valid .xlsx file."
+msgstr "No se pudo leer el archivo. Puede estar dañado o no ser un archivo .xlsx válido."
+
+#. module: lyd_sale_record
+#: model:ir.model.constraint,message:lyd_sale_record.constraint_lyd_sale_record_line_quantity_positive
+msgid "The quantity must be greater than zero."
+msgstr "La cantidad debe ser mayor que cero."
+
+#. module: lyd_sale_record
+#: model:ir.model.constraint,message:lyd_sale_record.constraint_lyd_sale_record_line_price_total_positive
+msgid "The total amount must be greater than zero."
+msgstr "El valor total debe ser mayor que cero."
+
+#. module: lyd_sale_record
+#. odoo-python
+#: code:addons/lyd_sale_record/wizard/lyd_sale_record_import.py:0
+msgid "This field is required."
+msgstr "Este campo es obligatorio."
+
+#. module: lyd_sale_record
+#: model:ir.model.fields,field_description:lyd_sale_record.field_lyd_sale_record__amount_total
+#: model_terms:ir.ui.view,arch_db:lyd_sale_record.lyd_sale_record_report_view_list
+#: model_terms:ir.ui.view,arch_db:lyd_sale_record.lyd_sale_record_view_list
+msgid "Total"
+msgstr "Total"
+
+#. module: lyd_sale_record
+#: model:ir.model.fields,field_description:lyd_sale_record.field_lyd_sale_record_line__price_total
+#: model:ir.model.fields,field_description:lyd_sale_record.field_lyd_sale_record_report__price_total
+msgid "Total Amount"
+msgstr "Valor Total"
+
+#. module: lyd_sale_record
+#. odoo-javascript
+#: code:addons/lyd_sale_record/static/src/views/sale_record_dashboard/sale_record_dashboard.xml:0
+msgid "Total sold (active filter)"
+msgstr "Total vendido (filtro activo)"
+
+#. module: lyd_sale_record
+#. odoo-javascript
+#: code:addons/lyd_sale_record/static/src/views/sale_record_dashboard/sale_record_dashboard.xml:0
+msgid "Total sold this month"
+msgstr "Total vendido en el mes"
+
+#. module: lyd_sale_record
+#: model:ir.model.fields,field_description:lyd_sale_record.field_lyd_sale_record_line__price_unit
+#: model:ir.model.fields,field_description:lyd_sale_record.field_lyd_sale_record_report__price_unit
+msgid "Unit Price"
+msgstr "Valor Unitario"
+
+#. module: lyd_sale_record
+#: model:ir.model.fields,field_description:lyd_sale_record.field_lyd_sale_record_line__price_unit_adjusted
+#: model:ir.model.fields,field_description:lyd_sale_record.field_lyd_sale_record_report__price_unit_adjusted
+msgid "Unit Price Adjusted"
+msgstr "Precio unitario ajustado"
+
+#. module: lyd_sale_record
+#: model_terms:ir.ui.view,arch_db:lyd_sale_record.lyd_sale_record_report_view_search
+#: model_terms:ir.ui.view,arch_db:lyd_sale_record.lyd_sale_record_view_search
+msgid "Unit price adjusted"
+msgstr "Precio unitario ajustado"
+
+#. module: lyd_sale_record
+#. odoo-python
+#: code:addons/lyd_sale_record/wizard/lyd_sale_record_import.py:0
+msgid "Unknown status %(value)r. Expected one of: %(values)s."
+msgstr "Estado desconocido %(value)r. Se esperaba uno de: %(values)s."
+
+#. module: lyd_sale_record
+#. odoo-python
+#: code:addons/lyd_sale_record/wizard/lyd_sale_record_import.py:0
+msgid "Unsupported format. Please upload a file with the .xlsx extension."
+msgstr "Formato no soportado. Por favor, cargue un archivo con extensión .xlsx"
+
+#. module: lyd_sale_record
+#: model:res.groups,name:lyd_sale_record.lyd_sale_record_group_user
+msgid "User"
+msgstr "Usuario"

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="lyd_sale_record_view_list" model="ir.ui.view">
+        <field name="name">lyd.sale.record.view.list</field>
+        <field name="model">lyd.sale.record</field>
+        <field name="arch" type="xml">
+            <list js_class="lyd_sale_record_realtime_list" string="Sale Records">
+                <field name="date"/>
+                <field name="partner_id"/>
+                <field name="user_id" widget="many2one_avatar_user"/>
+                <field name="currency_id" column_invisible="1"/>
+                <field name="amount_total" sum="Total"/>
+                <field name="state" widget="badge" 
+                    decoration-info="state == 'draft'"
+                    decoration-success="state == 'confirmed'"
+                    decoration-danger="state == 'cancelled'"/>
+                <field name="company_id" groups="base.group_multi_company" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="lyd_sale_record_view_form" model="ir.ui.view">
+        <field name="name">lyd.sale.record.view.form</field>
+        <field name="model">lyd.sale.record</field>
+        <field name="arch" type="xml">
+            <form string="Sale Record">
+                <header>
+                    <field 
+                        name="state" 
+                        widget="statusbar"
+                        statusbar_visible="draft,confirmed,cancelled"
+                    />
+                </header>
+                <sheet>
+                    <widget name="web_ribbon" title="Cancelled" bg_color="text-bg-danger" invisible="state != 'cancelled'"/>
+                    <group>
+                        <group>
+                            <field name="partner_id"/>
+                            <field name="user_id"/>
+                        </group>
+                        <group>
+                            <field name="date"/>
+                            <field name="amount_total"/>
+                            <field name="currency_id" invisible="1"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Order Lines" name="lines">
+                            <field name="line_ids">
+                                <list editable="bottom">
+                                    <field name="product_id"/>
+                                    <field name="quantity"/>
+                                    <field name="price_unit" readonly="price_unit_adjusted"/>
+                                    <field name="price_total"/>
+                                    <field name="price_unit_adjusted" readonly="1"/>
+                                    <field name="currency_id" column_invisible="1"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Import Information" name="import_info">
+                            <group string="Import Information">
+                                <field name="import_file_name" readonly="1"/>
+                                <field name="company_id" groups="base.group_multi_company"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="lyd_sale_record_view_search" model="ir.ui.view">
+        <field name="name">lyd.sale.record.view.search</field>
+        <field name="model">lyd.sale.record</field>
+        <field name="arch" type="xml">
+            <search string="Sale Records">
+                <field name="partner_id"/>
+                <field name="user_id"/>
+                <field name="state"/>
+                <filter name="filter_date" date="date"/>
+                <separator/>
+                <filter name="filter_draft" string="Draft" domain="[('state', '=', 'draft')]"/>
+                <filter name="filter_confirmed" string="Confirmed" domain="[('state', '=', 'confirmed')]"/>
+                <filter name="filter_cancelled" string="Cancelled" domain="[('state', '=', 'cancelled')]"/>
+                <separator/>
+                <filter name="filter_price_unit_adjusted" string="Unit price adjusted" domain="[('line_ids.price_unit_adjusted', '=', True)]"/>
+                <group>
+                    <filter name="group_by_partner" string="Customer" context="{'group_by': 'partner_id'}"/>
+                    <filter name="group_by_user" string="Salesperson" context="{'group_by': 'user_id'}"/>
+                    <filter name="group_by_state" string="Status" context="{'group_by': 'state'}"/>
+                    <filter name="group_by_date" string="Order Date" context="{'group_by': 'date:month'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="lyd_sale_record_action" model="ir.actions.act_window">
+        <field name="name">Sale Records</field>
+        <field name="res_model">lyd.sale.record</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="lyd_sale_record_view_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No sale records yet.
+            </p>
+            <p>
+                Import an Excel file to create sale records, or create one manually.
+            </p>
+        </field>
+    </record>
+
+</odoo>

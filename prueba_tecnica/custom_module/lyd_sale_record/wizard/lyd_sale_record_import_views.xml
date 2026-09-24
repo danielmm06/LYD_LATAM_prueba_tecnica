@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="lyd_sale_record_import_view_form" model="ir.ui.view">
+        <field name="name">lyd.sale.record.import.view.form</field>
+        <field name="model">lyd.sale.record.import</field>
+        <field name="arch" type="xml">
+            <form string="Import Excel">
+                <group>
+                    <field name="file" filename="file_name" options="{'accepted_file_extensions': '.xlsx'}"/>
+                    <field name="file_name" invisible="1"/>
+                </group>
+                <footer>
+                    <button string="Import" name="action_import" type="object" class="btn-primary"/>
+                    <button string="Cancel" special="cancel" class="btn-secondary"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="lyd_sale_record_import_action" model="ir.actions.act_window">
+        <field name="name">Import Excel</field>
+        <field name="res_model">lyd.sale.record.import</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+</odoo>

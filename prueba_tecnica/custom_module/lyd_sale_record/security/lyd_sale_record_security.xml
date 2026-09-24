@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="lyd_sale_record_rule_company" model="ir.rule">
+        <field name="name">Sale Record multi-company</field>
+        <field name="model_id" ref="model_lyd_sale_record"/>
+        <field name="domain_force">[('company_id', 'in', company_ids)]</field>
+    </record>
+
+    <record id="lyd_sale_record_line_rule_company" model="ir.rule">
+        <field name="name">Sale Record Line multi-company</field>
+        <field name="model_id" ref="model_lyd_sale_record_line"/>
+        <field name="domain_force">[('order_id.company_id', 'in', company_ids)]</field>
+    </record>
+
+    <record id="lyd_sale_record_report_rule_company" model="ir.rule">
+        <field name="name">Sales Analysis multi-company</field>
+        <field name="model_id" ref="model_lyd_sale_record_report"/>
+        <field name="domain_force">[('company_id', 'in', company_ids)]</field>
+    </record>
+</odoo>

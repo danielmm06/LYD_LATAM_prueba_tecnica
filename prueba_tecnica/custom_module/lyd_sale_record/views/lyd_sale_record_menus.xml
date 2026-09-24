@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <menuitem id="lyd_sale_record_menu_root"
+        name="Sale Records"
+        groups="lyd_sale_record_group_user"
+        sequence="60"/>
+
+    <menuitem id="lyd_sale_record_menu_dashboard"
+        name="Dashboard"
+        parent="lyd_sale_record_menu_root"
+        action="lyd_sale_record_report_action"
+        sequence="10"/>
+
+    <menuitem id="lyd_sale_record_menu_records"
+        name="Sale Records"
+        parent="lyd_sale_record_menu_root"
+        action="lyd_sale_record_action"
+        sequence="20"/>
+
+    <menuitem id="lyd_sale_record_menu_import"
+        name="Import Excel"
+        parent="lyd_sale_record_menu_root"
+        action="lyd_sale_record_import_action"
+        sequence="30"/>
+
+</odoo>

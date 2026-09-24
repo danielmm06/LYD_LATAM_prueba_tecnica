@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+    <t t-name="lyd_sale_record.RealtimeListRenderer" t-inherit="web.ListRenderer" t-inherit-mode="primary">
+        <xpath expr="//div[@t-ref='root']" position="before">
+            <SaleRecordDashboard list="props.list"/>
+        </xpath>
+    </t>
+
+</templates>

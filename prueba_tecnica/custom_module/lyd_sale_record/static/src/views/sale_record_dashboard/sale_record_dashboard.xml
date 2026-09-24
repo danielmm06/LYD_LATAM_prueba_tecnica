@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+    <t t-name="lyd_sale_record.SaleRecordDashboard">
+        <div class="o_lyd_sale_record_dashboard container-fluid py-4 border-bottom bg-view" t-if="dashboardData">
+            <div class="row gap-2 gap-lg-3">
+                <div class="col-12 col-lg-3">
+                    <div class="lyd_sale_record_dashboard_card p-2 bg-100 text-center rounded">
+                        <div class="fs-2" t-out="formatMonetary(dashboardData.month_total)"/>
+                        <div>Total sold this month</div>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-3">
+                    <div class="lyd_sale_record_dashboard_card p-2 bg-100 text-center rounded">
+                        <div class="fs-2" t-out="dashboardData.month_count"/>
+                        <div>Sales this month</div>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-3">
+                    <div class="lyd_sale_record_dashboard_card p-2 bg-100 text-center rounded">
+                        <div class="fs-2" t-out="formatMonetary(dashboardData.filter_total)"/>
+                        <div>Total sold (active filter)</div>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-3">
+                    <div class="lyd_sale_record_dashboard_card p-2 bg-100 text-center rounded">
+                        <div class="fs-2" t-out="dashboardData.filter_count"/>
+                        <div>Sales (active filter)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </t>
+
+</templates>

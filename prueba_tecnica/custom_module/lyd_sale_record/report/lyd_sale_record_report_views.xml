@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="lyd_sale_record_report_view_list" model="ir.ui.view">
+        <field name="name">lyd.sale.record.report.view.list</field>
+        <field name="model">lyd.sale.record.report</field>
+        <field name="arch" type="xml">
+            <list string="Sales Analysis" create="0" edit="0" delete="0">
+                <field name="date"/>
+                <field name="partner_id"/>
+                <field name="user_id" widget="many2one_avatar_user"/>
+                <field name="product_id"/>
+                <field name="quantity"/>
+                <field name="price_unit"/>
+                <field name="currency_id" column_invisible="1"/>
+                <field name="price_total" sum="Total"/>
+                <field name="state" widget="badge"
+                    decoration-info="state == 'draft'"
+                    decoration-success="state == 'confirmed'"
+                    decoration-danger="state == 'cancelled'"/>
+                <field name="price_unit_adjusted" optional="hide"/>
+                <field name="company_id" groups="base.group_multi_company" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="lyd_sale_record_report_view_search" model="ir.ui.view">
+        <field name="name">lyd.sale.record.report.view.search</field>
+        <field name="model">lyd.sale.record.report</field>
+        <field name="arch" type="xml">
+            <search string="Sales Analysis">
+                <field name="partner_id"/>
+                <field name="user_id"/>
+                <field name="product_id"/>
+                <field name="state"/>
+                <filter name="filter_date" date="date"/>
+                <separator/>
+                <filter name="filter_draft" string="Draft" domain="[('state', '=', 'draft')]"/>
+                <filter name="filter_confirmed" string="Confirmed" domain="[('state', '=', 'confirmed')]"/>
+                <filter name="filter_cancelled" string="Cancelled" domain="[('state', '=', 'cancelled')]"/>
+                <separator/>
+                <filter name="filter_price_unit_adjusted" string="Unit price adjusted" domain="[('price_unit_adjusted', '=', True)]"/>
+                <group>
+                    <filter name="group_by_partner" string="Customer" context="{'group_by': 'partner_id'}"/>
+                    <filter name="group_by_user" string="Salesperson" context="{'group_by': 'user_id'}"/>
+                    <filter name="group_by_product" string="Product" context="{'group_by': 'product_id'}"/>
+                    <filter name="group_by_state" string="Status" context="{'group_by': 'state'}"/>
+                    <filter name="group_by_date" string="Order Date" context="{'group_by': 'date:month'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="lyd_sale_record_report_view_graph" model="ir.ui.view">
+        <field name="name">lyd.sale.record.report.view.graph</field>
+        <field name="model">lyd.sale.record.report</field>
+        <field name="arch" type="xml">
+            <graph string="Sales Analysis" type="bar" sample="1">
+                <field name="product_id"/>
+                <field name="price_total" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="lyd_sale_record_report_view_pivot" model="ir.ui.view">
+        <field name="name">lyd.sale.record.report.view.pivot</field>
+        <field name="model">lyd.sale.record.report</field>
+        <field name="arch" type="xml">
+            <pivot string="Sales Analysis" sample="1">
+                <field name="date" interval="month" type="row"/>
+                <field name="state" type="col"/>
+                <field name="price_total" type="measure"/>
+                <field name="quantity" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <record id="lyd_sale_record_report_action" model="ir.actions.act_window">
+        <field name="name">Sales Analysis</field>
+        <field name="res_model">lyd.sale.record.report</field>
+        <field name="view_mode">graph,pivot,list</field>
+        <field name="search_view_id" ref="lyd_sale_record_report_view_search"/>
+        <field name="context">{'search_default_filter_date': 1, 'pivot_measures': ['price_total', 'quantity', '__count']}</field>
+    </record>
+
+</odoo>

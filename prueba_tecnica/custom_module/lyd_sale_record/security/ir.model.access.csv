@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+lyd_sale_record_user,lyd.sale.record.user,model_lyd_sale_record,lyd_sale_record_group_user,1,1,1,0
+lyd_sale_record_manager,lyd.sale.record.manager,model_lyd_sale_record,lyd_sale_record_group_manager,1,1,1,1
+lyd_sale_record_line_user,lyd.sale.record.line.user,model_lyd_sale_record_line,lyd_sale_record_group_user,1,1,1,1
+lyd_sale_record_line_manager,lyd.sale.record.line.manager,model_lyd_sale_record_line,lyd_sale_record_group_manager,1,1,1,1
+lyd_sale_record_report_user,lyd.sale.record.report.user,model_lyd_sale_record_report,lyd_sale_record_group_user,1,0,0,0
+lyd_sale_record_report_manager,lyd.sale.record.report.manager,model_lyd_sale_record_report,lyd_sale_record_group_manager,1,0,0,0
+lyd_sale_record_import_user,lyd.sale.record.import.user,model_lyd_sale_record_import,lyd_sale_record_group_user,1,1,1,0
