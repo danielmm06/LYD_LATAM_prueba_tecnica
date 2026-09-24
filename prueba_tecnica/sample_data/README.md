@@ -3,18 +3,21 @@
 Los archivos se generan con `generate_sample_data.py`:
 
 ```bash
-cd /Users/daniel/Documents/proyectos_odoo/odoo_19
-venv/bin/python custom_addons/LYD_LATAM_prueba_tecnica/prueba_tecnica/sample_data/generate_sample_data.py
+# Desde la carpeta sample_data/ de este repositorio, con un Python que tenga openpyxl
+# (p. ej. el mismo entorno virtual con el que ejecutas Odoo)
+python3 generate_sample_data.py
 ```
 
+Los archivos se escriben siempre junto al script, sin importar desde qué carpeta se ejecute.
+
 > Las filas "del mes actual" usan la fecha del día en que se ejecuta el script. Si repites las pruebas otro mes, **regenera los archivos** para que las tarjetas "este mes" cuadren con los valores de abajo.
-> Los resultados esperados se obtuvieron pasando cada archivo por el wizard real (con rollback) sobre `lyd_prueba` **vacía** e idioma `es_CO`.
+> Los resultados esperados se obtuvieron pasando cada archivo por el wizard real (con rollback) sobre una base de datos **sin ventas** e idioma `es_CO`.
 
 ## Preparación
 
-1. Reinicia el servidor (puerto 19000) para cargar la versión `19.0.1.1.0` del módulo.
-2. BD `lyd_prueba` **sin ventas**. Si ya importaste antes, borra las ventas desde *Ventas* (hace falta el nivel *Gerente*). Los clientes, vendedores y productos que ya existan se reutilizan, así que el número de "nuevos" del mensaje saldrá menor.
-3. Para la prueba de tiempo real necesitas **dos usuarios** con acceso al módulo (privilegio *Registro de venta*, nivel *Usuario* o *Gerente*): por ejemplo `admin` (ya es *Gerente*) y el usuario `test`. Asígnaselo en *Ajustes → Usuarios*.
+1. Instala o actualiza el módulo (versión `19.0.1.1.0`) y arranca el servidor, como se explica en la sección *Instalación* de `custom_module/lyd_sale_record/README.md`.
+2. Base de datos **sin ventas**. Si ya importaste antes, borra las ventas desde *Ventas* (hace falta el nivel *Gerente*). Los clientes, vendedores y productos que ya existan se reutilizan, así que el número de "nuevos" del mensaje saldrá menor.
+3. Para la prueba de tiempo real necesitas **dos usuarios** con acceso al módulo (privilegio *Registro de venta*, nivel *Usuario* o *Gerente*): por ejemplo `admin` (ya es *Gerente*) y un segundo usuario interno (créalo si no existe). Asígnaselo en *Ajustes → Usuarios*.
 
 ## Orden de las pruebas y resultado esperado
 

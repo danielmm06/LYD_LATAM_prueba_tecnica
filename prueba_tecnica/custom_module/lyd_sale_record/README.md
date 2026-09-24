@@ -9,15 +9,46 @@ Módulo para **Odoo 19** que importa desde un Excel las ventas del mes, las guar
 
 ## 1. Instalación
 
-1. **Dependencia Python:** `openpyxl` ya forma parte de los requisitos oficiales de Odoo 19 (`requirements.txt`, `openpyxl==3.1.2` con Python ≥ 3.12). Si falta: `pip install openpyxl`.
-2. **addons_path:** añade la carpeta que contiene el módulo, en este entorno `custom_addons/LYD_LATAM_prueba_tecnica/prueba_tecnica/custom_module` (ver `configs/lyd_prueba.cfg`).
-3. **Instalar:**
+En los comandos, sustituye los marcadores por los valores de tu entorno:
+
+| Marcador | Significado |
+|---|---|
+| `/ruta/a/odoo` | Carpeta del código fuente de Odoo 19 (la que contiene `odoo-bin`). |
+| `/ruta/a/custom_module` | Carpeta `custom_module/` de este repositorio, la que **contiene** la carpeta `lyd_sale_record/` (no la del módulo en sí). |
+| `/ruta/a/odoo.conf` | Tu archivo de configuración de Odoo (opcional). |
+| `<mi_base>` | Nombre de la base de datos donde se instala el módulo. |
+
+1. **Requisitos:** Odoo 19 (Community o Enterprise) funcionando, Python ≥ 3.12 y PostgreSQL.
+2. **Dependencia Python:** `openpyxl` ya forma parte de los requisitos oficiales de Odoo 19 (`requirements.txt`, `openpyxl==3.1.2`). Si falta, instálalo con el mismo intérprete (o entorno virtual) con el que ejecutas Odoo:
    ```bash
-   ./odoo-bin -c configs/lyd_prueba.cfg -d lyd_prueba -i lyd_sale_record --stop-after-init
+   python3 -m pip install openpyxl
    ```
-   o desde *Aplicaciones → Sale Record Import & Dashboard*.
-4. **Idioma:** el código está en inglés y la traducción al español está en `i18n/es.po`. Odoo lo carga para cualquier variante de español (`es_CO`, `es_419`, `es_ES`…), porque primero busca `es.po`. Activa el idioma en *Ajustes → Idiomas* y asígnalo al usuario.
-5. **Permisos:** asigna a cada usuario el privilegio *Registro de venta* en *Ajustes → Usuarios*:
+3. **Obtener el módulo:** clona o copia este repositorio en cualquier ubicación. Lo que Odoo necesita es la carpeta `custom_module/`, que contiene `lyd_sale_record/`.
+4. **addons_path:** añade `/ruta/a/custom_module` a la ruta de addons, junto a los addons estándar de Odoo. Hay dos formas:
+   - **En el archivo de configuración** (`odoo.conf`):
+     ```ini
+     [options]
+     addons_path = /ruta/a/odoo/addons,/ruta/a/custom_module
+     db_host = localhost
+     db_port = 5432
+     db_user = odoo
+     db_password = odoo
+     ```
+   - **Por línea de comandos:** `--addons-path=/ruta/a/odoo/addons,/ruta/a/custom_module`.
+5. **Instalar:** desde la carpeta de Odoo (`cd /ruta/a/odoo`):
+   ```bash
+   # Con archivo de configuración
+   ./odoo-bin -c /ruta/a/odoo.conf -d <mi_base> -i lyd_sale_record --stop-after-init
+
+   # Sin archivo de configuración
+   ./odoo-bin --addons-path=/ruta/a/odoo/addons,/ruta/a/custom_module -d <mi_base> -i lyd_sale_record --stop-after-init
+   ```
+   Si la base `<mi_base>` no existe, Odoo la crea. Después arranca el servidor normalmente (los mismos comandos sin `-i` ni `--stop-after-init`).
+
+   **Desde la interfaz:** con el servidor arrancado con el `addons_path` anterior, activa el modo desarrollador, ve a *Aplicaciones → Actualizar lista de aplicaciones*, quita el filtro *Aplicaciones* de la búsqueda, busca *Sale Record Import & Dashboard* y pulsa *Activar*.
+6. **Actualizar** (tras cambiar el código del módulo): igual que instalar, pero con `-u lyd_sale_record` en lugar de `-i lyd_sale_record`.
+7. **Idioma:** el código está en inglés y la traducción al español está en `i18n/es.po`. Odoo lo carga para cualquier variante de español (`es_CO`, `es_419`, `es_ES`…), porque primero busca `es.po`. Activa el idioma en *Ajustes → Idiomas* y asígnalo al usuario.
+8. **Permisos:** asigna a cada usuario el privilegio *Registro de venta* en *Ajustes → Usuarios*:
    - **Usuario:** ve, crea e importa ventas; puede quitar líneas de una venta.
    - **Gerente:** además puede borrar ventas. El administrador lo recibe al instalar el módulo.
 
@@ -132,11 +163,23 @@ Al volver a la lista se crea una instancia nueva, que se suscribe de nuevo y car
 
 ## 5. Pruebas
 
+Usa una **base de datos dedicada a las pruebas** (`<base_de_pruebas>`), no la de trabajo: los tests crean y modifican registros. Desde la carpeta de Odoo:
+
 ```bash
-./odoo-bin -c configs/lyd_prueba.cfg -d lyd_prueba --test-enable --test-tags /lyd_sale_record --stop-after-init -p 19069
+# Con archivo de configuración
+./odoo-bin -c /ruta/a/odoo.conf -d <base_de_pruebas> -i lyd_sale_record \
+    --test-enable --test-tags /lyd_sale_record --stop-after-init -p <puerto_libre>
+
+# Sin archivo de configuración
+./odoo-bin --addons-path=/ruta/a/odoo/addons,/ruta/a/custom_module -d <base_de_pruebas> -i lyd_sale_record \
+    --test-enable --test-tags /lyd_sale_record --stop-after-init -p <puerto_libre>
 ```
 
-El puerto `-p` tiene que ser uno libre, porque los tests JS levantan un servidor HTTP y usan Chrome headless. Resultado actual: **58 tests Python en verde, incluido el lanzador de los 5 tests JS (hoot), que también pasan**.
+- **`-i lyd_sale_record`** instala el módulo si la base es nueva; si ya está instalado, usa `-u lyd_sale_record`.
+- **`-p <puerto_libre>`:** un puerto que no use otro servidor de Odoo (p. ej. `8070`), porque los tests JS levantan un servidor HTTP.
+- **Tests JS (hoot):** necesitan **Google Chrome o Chromium** instalado y accesible para Odoo, que los ejecuta en modo headless. Si no está disponible, Odoo omite esos tests. Para ejecutar solo los tests Python, excluye el lanzador JS: `--test-tags '/lyd_sale_record,-/lyd_sale_record:TestLydSaleRecordJs'`.
+
+Resultado actual: **62 tests Python en verde, incluido el lanzador de los 5 tests JS (hoot), que también pasan**.
 
 | Archivo | Qué cubre |
 |---|---|
